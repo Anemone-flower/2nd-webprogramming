@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <script>
+        function addNode(t) {
+            var targetDiv = document.getElementById("target");
+            var textNode = document.createTextNode(t);
+            targetDiv.appendChild(textNode);
+        }
+    </script>
+</head>
+<body>
+    <div id="target" onclick="addNode('도도독 동적 텍스트')" style="font: 20px italic;">여기를 클릭하세요.</div>
+</body>
+</html>
