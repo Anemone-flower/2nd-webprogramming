@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="special">
+        <tr>
+            <td>(1, 1) 셀</td>
+            <td>(1, 2) 셀</td>
+        </tr>
+        <tr>
+            <td>(2, 1) 셀</td>
+            <td>(2, 2) 셀</td>
+        </tr>
+    </table>
+    <br>
+
+    <button onclick="insert()">행 추가</button>
+    <button onclick="del()">행 삭제</button>
+
+    <script>
+        function insert() {
+        var table = document.getElementById('special');
+
+        if (table.getElementsByTagName("td").length >= 10) {
+                alert("최대 10개의 셀을 초과할 수 없습니다.");
+                return;
+            }
+
+        var newRow = table.insertRow(table.rows.length);
+        var cell1 = newRow.insertCell(0);
+        var cell2 = newRow.insertCell(1);
+
+        cell1.innerHTML = 'new 1셀';
+        cell2.innerHTML = 'new 2셀'; 
+        }
+
+        function del(){
+            var table = document.getElementById('special');
+            var rows = table.getElementsByTagName("tr");
+            
+            if (rows.length > 2) {
+                table.deleteRow(rows.length - 1);
+            } else {
+                alert("삭제할 행이 없습니다.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
