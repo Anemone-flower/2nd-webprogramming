@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function randomly() {
+            const randomNumber1 = getRandomNumber(1, 100); // Change the range as needed
+            const randomNumber2 = getRandomNumber(1, 100); // Change the range as needed
+            const randomNumber3 = getRandomNumber(1, 100); // Change the range as needed
+            const operator = oper();
+
+            const expression = `${randomNumber1} ${operator} ${randomNumber2}`;
+
+            document.getElementById("Problem").value = expression;
+        }
+
+
+    function oper() {
+            const operators = ['+', '-', '*', '/'];
+            const randomIndex = Math.floor(Math.random() * operators.length);
+            return operators[randomIndex];
+        }
+
+    function cal(){
+        let ans = document.getElementById("Answer").value;
+        let s = document.getElementById("Problem").value;
+        let sol = eval(s).toFixed(2);
+        if(ans == sol){
+            alert("RIGHT!");
+        }
+        else{
+            alert("WRONG ANSWER!! Answer is : " +sol.toFixed(2));
+        }
+        randomly();
+    }
+</script>
+</head>
+<body>
+<h1>Math Quiz</h1>
+<input type="text" id="Problem" value=12*2+20-30><br>
+<input type="text" id="Answer">
+<button onclick="cal()">Hand in!</button>
+</body>
+</html>
